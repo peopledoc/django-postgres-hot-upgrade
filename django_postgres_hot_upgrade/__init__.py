@@ -1,1 +1,1 @@
-default_app_config = 'postgres_hot_update.app.PostgresHotUpdateConfig'
+default_app_config = 'django_postgres_hot_upgrade.app.PostgresHotUpdateConfig'
