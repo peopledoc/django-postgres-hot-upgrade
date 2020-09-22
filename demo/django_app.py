@@ -26,8 +26,8 @@ settings.configure(
 
 
 def index(request):
-    with connection.cursor() as cursor:
-        version = connection.connection.server_version
+    connection.connect()
+    version = connection.connection.server_version
     return HttpResponse(f"<h1>You're using pg {version}</h1>")
 
 

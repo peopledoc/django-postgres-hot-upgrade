@@ -18,8 +18,6 @@ jobs:
         include:
           - name: code
             tox-env: check-lint
-          - name: documentation
-            tox-env: docs
 
     name: Check ${{ matrix.name }}
     runs-on: ubuntu-latest

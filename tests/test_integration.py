@@ -1,5 +1,5 @@
-from django.db import connection
 from django.contrib.postgres import signals as postgres_signals
+from django.db import connection
 
 
 def test_integration(transactional_db, settings):
