@@ -1,0 +1,12 @@
+name-template: '$RESOLVED_VERSION: TODO: set meaningful title - UNRELEASED'
+tag-template: '$RESOLVED_VERSION'
+change-template: '- $TITLE (#$NUMBER)'
+version-resolver:
+  default: minor
+template: |
+
+  $CHANGES
+
+  ## Kudos:
+
+  $CONTRIBUTORS
