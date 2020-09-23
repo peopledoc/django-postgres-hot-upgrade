@@ -12,19 +12,19 @@ INSTALLED_APPS = [
 
 
 def _db(default_port):
-    return {
+    return
+
+
+PG12PORT = os.environ.get("PG12PORT", "5433")
+
+DATABASES = {
+    "default": {
         "ENGINE": "django.db.backends.postgresql",
         # All other connection params are read from environment
         # https://www.postgresql.org/docs/current/libpq-envars.html
         "NAME": os.environ["PGDATABASE"],
-        "PORT": default_port,
         "TEST": {
             "NAME": os.environ["PGDATABASE"],
         },
-    }
-
-
-DATABASES = {
-    "default": _db(os.environ.get("PGPORT", "5432")),
-    "pg12": _db(os.environ.get("PG12PORT", "5433")),
+    },
 }

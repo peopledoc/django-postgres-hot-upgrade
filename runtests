@@ -1,0 +1,8 @@
+#!/bin/bash -eu
+
+# Setup the postgres10 OIDs
+DJANGO_REVERSE_OPERATIONS=0 PGPORT=5432 django-admin migrate
+# Setup different OIDs for postgres12 on port 5433
+DJANGO_REVERSE_OPERATIONS=1 PGPORT=5433 django-admin migrate
+
+pytest "$@"
