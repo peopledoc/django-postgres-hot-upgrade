@@ -1,0 +1,16 @@
+version: '2.1'
+services:
+  postgres10:
+    image: postgres:10
+    ports:
+      - "5432:5432"
+    environment:
+        POSTGRES_DB: db
+        POSTGRES_PASSWORD: password
+  postgres12:
+    image: postgres:12
+    ports:
+      - "5433:5432"
+    environment:
+        POSTGRES_DB: db
+        POSTGRES_PASSWORD: password

@@ -1,0 +1,10 @@
+prune tests
+prune demo
+
+include LICENSE
+include VERSION.txt
+
+exclude docker-compose.yml
+exclude requirements.txt
+exclude tox.ini
+exclude runtests
