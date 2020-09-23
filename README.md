@@ -49,3 +49,31 @@ forcing Django to fetch the new values.
 **Code of Conduct**: This project is placed under the [Contributor
 Coveneant](https://www.contributor-covenant.org/version/2/0/code_of_conduct/). Please
 report any abuse to `joachim.jablon at people-doc.com`.
+
+
+## [Maintainers] The ugly part
+
+Apart from its unit tests, this package has an integration test. In order to test the
+feature, we need to simulate a change of OIDs caused by a live update from PG10 to PG12
+in a controlled CI environment. This is the most fragile part of the lib, and the most
+likely to break in the future. Here's what you need to know:
+
+- `docker-compose.yml` define two databases `postgres10` and `postgres12` listening on
+  5432 and 5433 respectively.
+- `tests/django_settings.py` define a `default` database using libpq envvars. Note that
+  in the settings, we requests the tests to run on the normal database instead of
+  dedicated `test_<foo>` database.
+- The OIDs are created by Postgres when installing the extensions. This happens in
+  `tests/migrations/0001_initial.py`. The `DJANGO_REVERSE_OPERATIONS` env var controls
+  the order of the 2 extensions creation. Running the PG10 migration in normal order
+  and the PG12 migration in reverse order ensures the OIDs will be different.
+- The `runtests` script ensure the migrations run on both databases in the decided
+  order, then launches the test. Without this, the integration test would likely fail
+  because the OIDs would be the same in the two databases.
+- `tox` calls `runtests`.
+- GitHub Actions call `tox`.
+
+The following work to launch tests locally:
+
+- run `tox` or `runtests` on fresh databases
+- run `pytests` if you know the OIDs are already properly set on the 2 databases
