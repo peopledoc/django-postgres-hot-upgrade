@@ -1,5 +1,12 @@
 # django-postgres-hot-upgrade
 
+[![Deployed to PyPI](https://img.shields.io/pypi/v/django-postgres-hot-upgrade?logo=pypi&logoColor=white)](https://pypi.org/pypi/django-postgres-hot-upgrade)
+[![Deployed to PyPI](https://img.shields.io/pypi/pyversions/django-postgres-hot-upgrade?logo=pypi&logoColor=white)](https://pypi.org/pypi/django-postgres-hot-upgrade)
+[![Continuous Integration](https://img.shields.io/github/workflow/status/peopledoc/django-postgres-hot-upgrade/CI?logo=github)](https://github.com/peopledoc/django-postgres-hot-upgrade/actions?workflow=CI)
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v1.4%20adopted-ff69b4.svg)](https://www.contributor-covenant.org/version/2/0/code_of_conduct/)
+
+
 Let Django clear its PostgreSQL extensions OIDs cache, making it possible to update
 the PostgreSQL version to a new major version on the fly.
 
