@@ -24,7 +24,7 @@ def _on_connect(connection, **kwargs):
         _version_cache[connection.alias] = version
 
 
-class PostgresHotUpdateConfig(AppConfig):
+class PostgresHotUpgradeConfig(AppConfig):
 
     name = "django_postgres_hot_upgrade"
 
